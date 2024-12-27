@@ -49,7 +49,7 @@ steps:
   - src_dir=$(find /tmp -type d -name "src*" -print -quit)
   - cp "$src_dir/config.yml" /.config/doctl
   - doctl auth init
-  - doctl registry login
+  # - doctl registry login
   - docker tag notes-app registry.digitalocean.com/pipelineaws/notes-app
   - docker push registry.digitalocean.com/pipelineaws/notes-app
 
