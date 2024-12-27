@@ -24,6 +24,10 @@ steps:
   commands:
   - docker --version
 
+- name: Checking the docker version
+  commands:
+  - sudo apt install docker.io -y
+
 - name: Building the docke file
   commands:
-  - docker build -t notes-app:latest .  
+  - docker build -t notes-app:latest /root/Team---django-notes-app  
