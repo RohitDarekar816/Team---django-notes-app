@@ -27,7 +27,20 @@ steps:
 - name: Installing docker
   commands:
   - sudo apt install docker.io -y
+---
+kind: pipeline
+type: docker
+name: default
 
+steps:
 - name: Building the docke file
+  image: notes-app
   commands:
-  - docker build -t notes-app:latest /root/Team---django-notes-app  
+  - docker build -t notes-app:latest /root/Team---django-notes-app 
+
+trigger:
+  event:
+    - push
+    - pull_request
+  branch:
+    - main 
