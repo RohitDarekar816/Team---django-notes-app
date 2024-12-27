@@ -34,14 +34,20 @@ steps:
 #  - name: run docker 
 #    commands:
 #    - docker run -d -p 8000:8000 notes-app:latest
-
-- name: Installing doctl
+- name: Checking the docker version
   commands:
-  - wget https://github.com/digitalocean/doctl/releases/download/v1.119.0/doctl-1.119.0-linux-amd64.tar.gz
-  - tar xf doctl-1.119.0-linux-amd64.tar.gz
-  - sudo mv doctl /usr/local/bin
-  # - doctl registry login
-  - cat my_password.txt | docker login registry.digitalocean.com -u info@iconmagazine.in --password-stdin
+  - sudo snap install doctl
+  - sudo snap connect doctl:kube-config
+  - sudo snap connect doctl:ssh-keys :ssh-keys
+  - sudo snap connect doctl:dot-docker
+
+  # - name: Installing doctl
+  #   commands:
+  #   - wget https://github.com/digitalocean/doctl/releases/download/v1.119.0/doctl-1.119.0-linux-amd64.tar.gz
+  #   - tar xf doctl-1.119.0-linux-amd64.tar.gz
+  #   - sudo mv doctl /usr/local/bin
+  #   # - doctl registry login
+  #   - cat my_password.txt | docker login registry.digitalocean.com -u info@iconmagazine.in --password-stdin
 
 # - name: Login to docker registry 
 #  commands:
