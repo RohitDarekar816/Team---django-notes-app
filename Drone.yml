@@ -42,7 +42,7 @@ steps:
   - ls
   - tar xf doctl-1.119.0-linux-amd64.tar.gz
   - ls
-  # - sudo mv ~/doctl /usr/local/bin
+  - sudo mv doctl /usr/local/bin
   # - doctl auth init -$token
   # - doctl account get
 
