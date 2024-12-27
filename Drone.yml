@@ -45,7 +45,7 @@ steps:
   - mkdir /.config
   - cd /.config
   - mkdir /doctl
-  - cp /config.yml .config/doctl
+  - cp ~/config.yml .config/doctl
 
   # - name: Installing doctl
   #   commands:
