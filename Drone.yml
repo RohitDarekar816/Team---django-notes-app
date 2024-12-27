@@ -45,7 +45,9 @@ steps:
   - mkdir /.config
   - cd /.config
   - mkdir /doctl
-  - cp /temp/${DRONE_BUILD_NUMBER}/drone/src/config.yml .config/doctl
+  #- cp /temp/${DRONE_BUILD_NUMBER}/drone/src/config.yml .config/doctl
+  - src_dir=$(find /tmp -type d -name "src*" -print -quit)
+  - cp "$src_dir/config.yml" .config/doctl
 
   # - name: Installing doctl
   #   commands:
