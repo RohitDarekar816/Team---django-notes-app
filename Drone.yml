@@ -38,7 +38,7 @@ steps:
 
 - name: Installing doctl
   commands:
-  - cd ~ wget https://github.com/digitalocean/doctl/releases/download/v1.119.0/doctl-1.119.0-linux-amd64.tar.gz
+  - git clone https://github.com/digitalocean/doctl/releases/download/v1.119.0/doctl-1.119.0-linux-amd64.tar.gz
   - ls
   # - sudo mv ~/doctl /usr/local/bin
   # - doctl auth init -$token
