@@ -9,10 +9,11 @@ username:
   from_secret: username
 password:
   from_secret: password
-pipelineaws: 
-  from_secret: pipelineaws
-access-token:
-  from_secret: access-token
+environment:
+  pipelineaws: 
+    from_secret: pipelineaws
+  access-token:
+    from_secret: access-token
 
 server:
   image: ubuntu-24-10-x64
