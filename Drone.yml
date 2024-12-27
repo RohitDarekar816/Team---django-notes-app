@@ -26,7 +26,7 @@ steps:
 
 - name: Installing docker
   commands:
-  - sudo docker build -t notes-app:latest /root/Team---django-notes-app
+  - sh docker build -t notes-app:latest /root/Team---django-notes-app
 ---
 kind: pipeline
 type: docker
@@ -38,7 +38,7 @@ steps:
   - git clone https://github.com/RohitDarekar816/Team---django-notes-app.git
 
 - name: Building the docke file
-  image: notes-app
+  image: docker:dind
   commands:
   - docker build -t notes-app:latest /root/Team---django-notes-app 
 
