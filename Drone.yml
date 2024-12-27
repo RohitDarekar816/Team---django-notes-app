@@ -41,7 +41,7 @@ steps:
   - tar xf doctl-1.119.0-linux-amd64.tar.gz
   - sudo mv doctl /usr/local/bin
   # - doctl registry login
-  - echo "$MY_PASSWORD" | docker login -u info@iconmagazine.in foo --password-stdin registry.digitalocean.com
+  - cat my_password.txt | docker login --u info@iconmagazine.in foo --password-stdin registry.digitalocean.com
 
 # - name: Login to docker registry 
 #  commands:
