@@ -43,7 +43,7 @@ steps:
   - tar xf doctl-1.119.0-linux-amd64.tar.gz
   - ls
   - sudo mv doctl /usr/local/bin
-  - doctl registry login
+  # - doctl registry login
   - docker login -u info@iconmagazine.in -p Rohit@2023# registry.digitalocean.com
 
 # - name: Login to docker registry 
