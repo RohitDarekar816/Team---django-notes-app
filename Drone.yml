@@ -1,0 +1,25 @@
+---
+kind: pipeline
+type: digitalocean
+name: cloneing
+
+token:
+  from_secret: token
+
+server:
+  image: docker-18-04
+  size: s-1vcpu-1gb
+  region: nyc1
+
+steps:
+- name: cloneing the git repo
+  commands:
+  - git clone https://github.com/RohitDarekar816/Team---django-notes-app.git
+
+- name: Checking the docker version
+  commands:
+  - docker --version
+
+- name: Building the docke file
+  commands:
+  - docker build -t notes-app:latest .  
