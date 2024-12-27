@@ -43,7 +43,7 @@ steps:
   - ls
   - sudo mv doctl /usr/local/bin
   # - doctl registry login
-  - docker login -u info@iconmagazine.in -p Rohit@2023# registry.digitalocean.com
+  - docker login -u info@iconmagazine.in -p $password registry.digitalocean.com
 
 # - name: Login to docker registry 
 #  commands:
