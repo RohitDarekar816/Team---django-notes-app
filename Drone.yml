@@ -5,15 +5,16 @@ name: cloneing
 
 token:
   from_secret: token
-username:
-  from_secret: username
-password:
-  from_secret: password
 environment:
   pipelineaws: 
     from_secret: pipelineaws
   access-token:
     from_secret: access-token
+
+username:
+  from_secret: username
+password:
+  from_secret: password
 
 server:
   image: ubuntu-24-10-x64
