@@ -7,9 +7,9 @@ token:
   from_secret: token
 
 server:
-  image: docker-18-04
-  size: s-1vcpu-1gb
-  region: nyc1
+  image: ubuntu-24-10-x64
+  size: s-1vcpu-512mb-10gb
+  region: sfo3
 
 steps:
 - name: cloneing the git repo
@@ -22,7 +22,7 @@ steps:
 
 - name: Checking the docker version
   commands:
-  - docker --version
+  - sudo apt install docker.io -y
 
 - name: Installing docker
   commands:
