@@ -16,9 +16,9 @@ server:
   region: sfo3
 
 steps:
-#  - name: cloneing the git repo
-#    commands:
-#    - git clone https://github.com/RohitDarekar816/Team---django-notes-app.git
+- name: cloneing the git repo
+  commands:
+  - git clone https://github.com/RohitDarekar816/Team---django-notes-app.git
 
 #  - name: List the git repo files
 #    commands:
@@ -40,7 +40,7 @@ steps:
   - sudo snap connect doctl:kube-config
   - sudo snap connect doctl:ssh-keys :ssh-keys
   - sudo snap connect doctl:dot-docker
-  - doctl auth init
+  - cp config.yaml /.config/doctl
 
   # - name: Installing doctl
   #   commands:
