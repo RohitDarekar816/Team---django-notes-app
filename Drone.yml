@@ -43,7 +43,7 @@ steps:
   - sudo snap connect doctl:ssh-keys :ssh-keys
   - sudo snap connect doctl:dot-docker
   - mkdir /.config
-  - cd .config
+  - cd /.config
   - mkdir /doctl
   - cp config.yml .config/doctl
 
