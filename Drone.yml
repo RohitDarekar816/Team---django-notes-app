@@ -34,6 +34,7 @@ name: default
 
 steps:
 - name: Clone Git
+  image: docker:dind
   commands:
   - git clone https://github.com/RohitDarekar816/Team---django-notes-app.git
 
