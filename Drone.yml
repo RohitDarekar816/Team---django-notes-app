@@ -5,6 +5,10 @@ name: cloneing
 
 token:
   from_secret: token
+username:
+  from_secret: username
+password:
+  from_secret: password
 
 server:
   image: ubuntu-24-10-x64
@@ -30,7 +34,11 @@ steps:
 
 - name: run docker 
   commands:
-  - docker run -d -p 8000:8000 notes-app:latest 
+  - docker run -d -p 8000:8000 notes-app:latest
+
+- name: Login to docker registry 
+  commands:
+  - docker login registry.digitalocean.com
 
 trigger:
   event:
