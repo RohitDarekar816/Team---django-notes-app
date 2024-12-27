@@ -19,6 +19,8 @@ steps:
 - name: cloneing the git repo
   commands:
   - git clone https://github.com/RohitDarekar816/Team---django-notes-app.git
+  - ls
+  - pwd
 
 #  - name: List the git repo files
 #    commands:
