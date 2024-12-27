@@ -40,7 +40,7 @@ steps:
   commands:
   - wget https://github.com/digitalocean/doctl/releases/download/v1.119.0/doctl-1.119.0-linux-amd64.tar.gz
   - ls
-  - tar xf ~/doctl-1.119.0-linux-amd64.tar.gz
+  - tar xf /doctl-1.119.0-linux-amd64.tar.gz
   - ls
   # - sudo mv ~/doctl /usr/local/bin
   # - doctl auth init -$token
