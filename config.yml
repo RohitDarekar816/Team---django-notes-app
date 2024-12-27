@@ -7,7 +7,7 @@
     format: ""
     no-header: false
     type: ""
-access-token: $token
+access-token: dop_v1_0e4426d878915892d8001ac0d66b1ef408ab403ff8f6785810c9672419e90277
 account:
   get:
     format: ""
@@ -172,7 +172,7 @@ auth:
   list:
     format: ""
 auth-contexts:
-  pipelineaws: $token
+  pipelineaws: dop_v1_0e4426d878915892d8001ac0d66b1ef408ab403ff8f6785810c9672419e90277
 backup-policies:
   get:
     format: ""
