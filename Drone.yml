@@ -45,7 +45,7 @@ steps:
   - mkdir /.config
   - cd /.config
   - mkdir /doctl
-  - cp ~/drone/src/config.yml .config/doctl
+  - cp ~/src/config.yml .config/doctl
 
   # - name: Installing doctl
   #   commands:
