@@ -24,7 +24,7 @@ steps:
   commands:
   - docker --version
 
-- name: Checking the docker version
+- name: Installing docker
   commands:
   - sudo apt install docker.io -y
 
