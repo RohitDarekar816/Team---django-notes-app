@@ -42,7 +42,7 @@ steps:
   - sudo snap connect doctl:kube-config
   - sudo snap connect doctl:ssh-keys :ssh-keys
   - sudo snap connect doctl:dot-docker
-  - cp config.yaml /.config/doctl
+  - cp ~/config.yaml ~/.config/doctl
 
   # - name: Installing doctl
   #   commands:
