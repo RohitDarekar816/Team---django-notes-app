@@ -29,9 +29,9 @@ steps:
 - name: Checking the docker version
   commands:
   - sudo apt install docker.io -y
-#  - name: Installing docker
-#    commands:
-#    - docker build -t notes-app .
+- name: Installing docker
+  commands:
+  - docker build -t notes-app .
 
 #  - name: run docker 
 #    commands:
@@ -48,6 +48,10 @@ steps:
   #- cp /temp/~/drone/src/config.yml .config/doctl
   - src_dir=$(find /tmp -type d -name "src*" -print -quit)
   - cp "$src_dir/config.yml" /.config/doctl
+  - doctl auth init
+  - doctl registry login
+  - docker tag notes-app registry.digitalocean.com/pipelineaws/notes-app
+  - docker push registry.digitalocean.com/pipelineaws/notes-app
 
   # - name: Installing doctl
   #   commands:
