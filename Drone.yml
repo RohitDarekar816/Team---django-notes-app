@@ -24,10 +24,9 @@ steps:
 #    commands:
 #    - ls
 
-#  - name: Checking the docker version
-#    commands:
-#    - sudo apt install docker.io -y
-
+- name: Checking the docker version
+  commands:
+  - sudo apt install docker.io -y
 #  - name: Installing docker
 #    commands:
 #    - docker build -t notes-app .
