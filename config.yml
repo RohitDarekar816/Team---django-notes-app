@@ -8,7 +8,7 @@
     no-header: false
     type: ""
 access-token:
-  from_secret: token
+  from_secret: access-token
 account:
   get:
     format: ""
@@ -174,7 +174,7 @@ auth:
     format: ""
 auth-contexts:
   pipelineaws: 
-    from_secret: token
+    from_secret: pipelineaws
 backup-policies:
   get:
     format: ""
