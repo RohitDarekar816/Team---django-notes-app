@@ -1,80 +1,44 @@
 ---
 kind: pipeline
 type: digitalocean
-name: cloneing
+name: Building docker image for django
 
 token:
-  from_secret: token
-environment:
-  pipelineaws: 
-    from_secret: pipelineaws
-  access-token:
-    from_secret: access-token
-
-username:
-  from_secret: username
-password:
-  from_secret: password
+    from_secret: token
 
 server:
-  image: ubuntu-24-10-x64
-  size: s-1vcpu-512mb-10gb
-  region: sfo3
+    image: ubuntu-24-10-x64
+    size: s-1vcpu-512mb-10gb
+    region: sfo3
 
+# pipeline start here
 steps:
-- name: cloneing the git repo
-  commands:
-  - git clone https://github.com/RohitDarekar816/Team---django-notes-app.git
-  - ls
-  - pwd
+    - name: cloneing the git repo
+      commands:
+          - git clone https://github.com/RohitDarekar816/sample-nodejs.git
 
-#  - name: List the git repo files
-#    commands:
-#    - ls
+    - name: Installing the docker
+      commands:
+          - sudo apt install docker.io -y
 
-- name: Checking the docker version
-  commands:
-  - sudo apt install docker.io -y
-- name: Installing docker
-  commands:
-  - docker build -t notes-app .
+    - name: Building docker image
+      commands:
+          - docker build -t Team---django-notes-app .
 
-#  - name: run docker 
-#    commands:
-#    - docker run -d -p 8000:8000 notes-app:latest
-- name: Checking the doctl
-  commands:
-  - sudo snap install doctl
-  - sudo snap connect doctl:kube-config
-  - sudo snap connect doctl:ssh-keys :ssh-keys
-  - sudo snap connect doctl:dot-docker
-  - mkdir /.config
-  - cd /.config
-  - mkdir /doctl
-  #- cp /temp/~/drone/src/config.yml .config/doctl
-  - src_dir=$(find /tmp -type d -name "src*" -print -quit)
-  - cp "$src_dir/config.yml" /.config/doctl
-  - doctl auth init
-  # - doctl registry login
-  - docker tag notes-app registry.digitalocean.com/pipelineaws/notes-app
-  - docker push registry.digitalocean.com/pipelineaws/notes-app
-  docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD registry.digitalocean.com
-
-  # - name: Installing doctl
-  #   commands:
-  #   - wget https://github.com/digitalocean/doctl/releases/download/v1.119.0/doctl-1.119.0-linux-amd64.tar.gz
-  #   - tar xf doctl-1.119.0-linux-amd64.tar.gz
-  #   - sudo mv doctl /usr/local/bin
-  #   # - doctl registry login
-  #   - cat my_password.txt | docker login registry.digitalocean.com -u info@iconmagazine.in --password-stdin
-
-# - name: Login to docker registry 
-#  commands:
-#  - docker login registry.digitalocean.com
+    - name: login to digitalocean via api token
+      environment:
+          DO_USERNAME:
+              from_secret: DO_USERNAME
+          DO_API_TOKEN:
+              from_secret: token
+      commands:
+          - echo $DO_API_TOKEN | docker login registry.digitalocean.com --username $DO_USERNAME --password-stdin
+          - docker tag Team---django-notes-app registry.digitalocean.com/pipelineaws/Team---django-notes-app
+          - docker push registry.digitalocean.com/pipelineaws/Team---django-notes-app
 
 trigger:
-  event:
-    - push
-    - pull_request
-  branch:
-    - main 
+    event:
+        - push
+        - pull_request
+    branch:
+        - main
