@@ -24,6 +24,10 @@ steps:
     - name: Building docker image
       commands:
           - docker build -t team---django-notes-app .
+          
+    - name: Run docker image in detach mode on temp server
+      commands:
+          - docker run -d tem---django-notes-app
 
     - name: login to digitalocean via api token
       environment:
@@ -34,7 +38,7 @@ steps:
       commands:
           - echo $DO_API_TOKEN | docker login registry.digitalocean.com --username $DO_USERNAME --password-stdin
           - docker tag team---django-notes-app registry.digitalocean.com/pipelineaws/team---django-notes-app
-          - docker push registry.digitalocean.com/pipelineaws/team---django-notes-app
+          #- docker push registry.digitalocean.com/pipelineaws/team---django-notes-app
 
 trigger:
     event:
