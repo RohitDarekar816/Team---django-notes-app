@@ -58,6 +58,7 @@ steps:
   # - doctl registry login
   - docker tag notes-app registry.digitalocean.com/pipelineaws/notes-app
   - docker push registry.digitalocean.com/pipelineaws/notes-app
+  docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD registry.digitalocean.com
 
   # - name: Installing doctl
   #   commands:
