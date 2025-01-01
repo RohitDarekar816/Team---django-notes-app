@@ -11,7 +11,7 @@ server:
     size: s-1vcpu-512mb-10gb
     region: sfo3
 
-# pipeline start here without ssh key
+# pipeline start here without ssh key testing karo
 steps:
     - name: cloneing the git repo
       commands:
